@@ -11,6 +11,7 @@ target 'chat_app' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
+ pod ‘ApiAI’
 pod 'IQKeyboardManager'
 
   target 'chat_appTests' do

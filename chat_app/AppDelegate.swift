@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManager
+import ApiAI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()        // Override point for customization after application launch.
+        FirebaseApp.configure()        // Override point for customization after application launch.
         IQKeyboardManager.shared().isEnabled = true
+        
+        //dialogue flow ApiAI
+        let configuration: AIConfiguration = AIDefaultConfiguration()
+        configuration.clientAccessToken = "cc94ae0e81494a3391982f6dc3b07b0f"
+        let apiai = ApiAI.shared()
+        apiai?.configuration = configuration
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -8,10 +8,14 @@
 
 import UIKit
 import JSQMessagesViewController
+import ApiAI
 
 
 
 class ChatViewController: JSQMessagesViewController{
+    
+    //For our device to speak
+    let speechSynthesizer = AVSpeechSynthesizer()
     
     var messages = [JSQMessage]()
 
@@ -159,6 +163,7 @@ class ChatViewController: JSQMessagesViewController{
     }
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
+        
         //Sending A Chat Message With didPressSend()
         let ref = Constants.refs.databaseChats.childByAutoId()
         
@@ -167,7 +172,29 @@ class ChatViewController: JSQMessagesViewController{
         ref.setValue(message)
         
         finishSendingMessage()
-    }
+        
+        
+        
+        let request = ApiAI.shared().textRequest()
+        if let textapi = text, textapi != "" {
+            request?.query = textapi
+        } else {
+            return
+        }
+        
+        //Send to request to API.AI
+        ApiAI.shared().enqueue(request)
+        
+        request?.setMappedCompletionBlockSuccess({ (request,response) in
+            let response = response as! AIResponse
+            if let textresponse = response.result.fulfillment.speech as? String{
+                self.speak(text: textresponse)
+                self.addBotResponse(textio: textresponse)
+            }
+        }, failure: { (request,error) in
+            print(error ?? "its wrong")
+        })
+        }
     
 
     override func didReceiveMemoryWarning() {
@@ -175,6 +202,22 @@ class ChatViewController: JSQMessagesViewController{
         // Dispose of any resources that can be recreated.
     }
 
+//ApiAI
+    //Device speak
+    func speak(text: String) {
+        let speechUtterance = AVSpeechUtterance(string: text)
+        speechSynthesizer.speak(speechUtterance)
+    }
+    
+    func addBotResponse(textio: String) {
+        if let message = JSQMessage(senderId: "chatbot", displayName: "DiagnoBot", text: textio)
+        {
+            self.messages.append(message)
+            
+            self.finishReceivingMessage()
+        }
 
+    }
+    
 }
 
