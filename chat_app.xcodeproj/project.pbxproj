@@ -18,6 +18,7 @@
 		DF3D18E2203ABD0400C260BA /* chat_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D18E1203ABD0400C260BA /* chat_appUITests.swift */; };
 		DF3D18F1203AC50300C260BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF3D18F0203AC50300C260BA /* GoogleService-Info.plist */; };
 		DF3D18F3203AC59600C260BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D18F2203AC59600C260BA /* Constants.swift */; };
+		DF415C82203EA6FC0055BCB9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF415C81203EA6FC0055BCB9 /* HomeViewController.swift */; };
 		F76FC539D09622764B2D118F /* Pods_chat_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D84FFD33EF7AA9839EEDA38 /* Pods_chat_appTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		DF3D18EF203AC10000C260BA /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		DF3D18F0203AC50300C260BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF3D18F2203AC59600C260BA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DF415C81203EA6FC0055BCB9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				DF3D18C1203ABD0200C260BA /* AppDelegate.swift */,
 				DF3D18C3203ABD0200C260BA /* ChatViewController.swift */,
 				DF3D18C5203ABD0200C260BA /* Main.storyboard */,
+				DF415C81203EA6FC0055BCB9 /* HomeViewController.swift */,
 				DF3D18C8203ABD0200C260BA /* Assets.xcassets */,
 				DF3D18CA203ABD0200C260BA /* LaunchScreen.storyboard */,
 				DF3D18F0203AC50300C260BA /* GoogleService-Info.plist */,
@@ -352,9 +355,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-chat_app/Pods-chat_app-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -417,6 +423,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-chat_app/Pods-chat_app-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -428,6 +435,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
@@ -484,6 +492,7 @@
 				DF3D18C4203ABD0200C260BA /* ChatViewController.swift in Sources */,
 				DF3D18C2203ABD0200C260BA /* AppDelegate.swift in Sources */,
 				DF3D18F3203AC59600C260BA /* Constants.swift in Sources */,
+				DF415C82203EA6FC0055BCB9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

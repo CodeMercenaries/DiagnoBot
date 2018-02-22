@@ -51,10 +51,10 @@ class ChatViewController: JSQMessagesViewController{
         
         title = "Chat: \(senderDisplayName!)"
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDisplayNameDialog))
-        tapGesture.numberOfTapsRequired = 1
+       // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDisplayNameDialog))
+        //tapGesture.numberOfTapsRequired = 1
         
-        navigationController?.navigationBar.addGestureRecognizer(tapGesture)
+        //navigationController?.navigationBar.addGestureRecognizer(tapGesture)
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -210,13 +210,27 @@ class ChatViewController: JSQMessagesViewController{
     }
     
     func addBotResponse(textio: String) {
-        if let message = JSQMessage(senderId: "chatbot", displayName: "DiagnoBot", text: textio)
+        /*if let message = JSQMessage(senderId: "chatbot", displayName: "DiagnoBot", text: textio)
         {
-            self.messages.append(message)
+            let ref = Constants.refs.databaseChats.childByAutoId()
+            
+            let messageBot = ["sender_id": "chatbot", "name": "DiagnoBot", "text": textio]
+            
+            ref.setValue(messageBot)
+            
+            finishSendingMessage()
+            
+           self.messages.append(message)
             
             self.finishReceivingMessage()
-        }
-
+        }*/
+        let ref = Constants.refs.databaseChats.childByAutoId()
+        
+        let messageBot = ["sender_id": "chatbot", "name": "DiagnoBot", "text": textio]
+        
+        ref.setValue(messageBot)
+        
+        finishSendingMessage()
     }
     
 }

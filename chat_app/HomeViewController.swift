@@ -2,17 +2,19 @@
 //  HomeViewController.swift
 //  chat_app
 //
-//  Created by R.M.K.CET on 20/02/18.
+//  Created by R.M.K.CET on 22/02/18.
 //  Copyright © 2018 R.M.K.C.E.T. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
 
-    override func viewDidLoad() {
+class HomeViewController: UIViewController{
+
+        override func viewDidLoad() {
         super.viewDidLoad()
-
+           
+      
         // Do any additional setup after loading the view.
     }
 
@@ -20,12 +22,12 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // Implement these methods only if the GIDSignInUIDelegate is not a subclass of
+    // UIViewController.
     
-    @IBAction func ChatToBot(_ sender: Any) {
-        let chat = ChatViewController()
-        self.navigationController?.pushViewController(chat, animated: true)
-    }
-
+    // Stop the UIActivityIndicatorView animation that was started when the user
+    // pressed the Sign In button
+   
     /*
     // MARK: - Navigation
 
@@ -35,5 +37,6 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
+

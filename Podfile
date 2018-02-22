@@ -13,6 +13,7 @@ target 'chat_app' do
   pod 'JSQMessagesViewController'
  pod ‘ApiAI’
 pod 'IQKeyboardManager'
+pod 'GoogleSignIn'
 
   target 'chat_appTests' do
     inherit! :search_paths
