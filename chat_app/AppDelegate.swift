@@ -13,7 +13,30 @@ import ApiAI
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error) != nil {
+            print("An error occured during Google Authentication")
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if (error) != nil {
+                print("Google Authentification Fail")
+            } else {
+                print("Google Authentification Success")
+                
+                let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+                let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = homeVC
+            }
+        }
+    }
+    
 
     var window: UIWindow?
 
@@ -22,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
          FirebaseApp.configure()        // Override point for customization after application launch.
              IQKeyboardManager.shared().isEnabled = true
+        
+        //Google SigIn
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         
         //dialogue flow ApiAI
         let configuration: AIConfiguration = AIDefaultConfiguration()
@@ -32,6 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let googleAuthentication = GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+        
+        
+        return googleAuthentication
+    }
 
     
     

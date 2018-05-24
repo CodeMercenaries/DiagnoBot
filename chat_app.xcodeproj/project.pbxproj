@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DDECD617E4D18B0F1DFCE05 /* Pods_chat_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C9345C17D3E3CA56E53D27 /* Pods_chat_appUITests.framework */; };
 		3F0B7AD2D05399A9EDB96C8C /* Pods_chat_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14173D2969378C2B64322E7 /* Pods_chat_app.framework */; };
+		509C6BE320B670A9001832E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6BE220B670A9001832E5 /* MainViewController.swift */; };
+		50AD7D4A20B6A9A800233C14 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD7D4920B6A9A800233C14 /* Card.swift */; };
 		DF3D18C2203ABD0200C260BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D18C1203ABD0200C260BA /* AppDelegate.swift */; };
 		DF3D18C4203ABD0200C260BA /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D18C3203ABD0200C260BA /* ChatViewController.swift */; };
 		DF3D18C7203ABD0200C260BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF3D18C5203ABD0200C260BA /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		0871F722C917AF578E364224 /* Pods-chat_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat_appTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-chat_appTests/Pods-chat_appTests.release.xcconfig"; sourceTree = "<group>"; };
 		311AF4EE526B28AB8FB2EEE7 /* Pods-chat_appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat_appUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-chat_appUITests/Pods-chat_appUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4D84FFD33EF7AA9839EEDA38 /* Pods_chat_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chat_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		509C6BE220B670A9001832E5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		50AD7D4920B6A9A800233C14 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = /Users/cse/Documents/DiagnoBot/chat_app/Card.swift; sourceTree = "<absolute>"; };
 		51C9345C17D3E3CA56E53D27 /* Pods_chat_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chat_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6EA1B209DF3E9147D04FF0 /* Pods-chat_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chat_app/Pods-chat_app.debug.xcconfig"; sourceTree = "<group>"; };
 		91B97A85896218D8AE06D1C2 /* Pods-chat_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat_appTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chat_appTests/Pods-chat_appTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				DF3D18C1203ABD0200C260BA /* AppDelegate.swift */,
+				50AD7D4920B6A9A800233C14 /* Card.swift */,
+				509C6BE220B670A9001832E5 /* MainViewController.swift */,
 				DF3D18C3203ABD0200C260BA /* ChatViewController.swift */,
 				DF3D18C5203ABD0200C260BA /* Main.storyboard */,
 				DF415C81203EA6FC0055BCB9 /* HomeViewController.swift */,
@@ -490,9 +496,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF3D18C4203ABD0200C260BA /* ChatViewController.swift in Sources */,
+				50AD7D4A20B6A9A800233C14 /* Card.swift in Sources */,
 				DF3D18C2203ABD0200C260BA /* AppDelegate.swift in Sources */,
 				DF3D18F3203AC59600C260BA /* Constants.swift in Sources */,
 				DF415C82203EA6FC0055BCB9 /* HomeViewController.swift in Sources */,
+				509C6BE320B670A9001832E5 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
